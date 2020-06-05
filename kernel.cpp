@@ -11,10 +11,16 @@ decltype(auto) add(Args args...) {
   return (args + ...);
 }
 
+template<typename T, typename F>
+decltype(auto) apply(T a, F f) {
+  return f(a);
+}
+
 void func(float* y, float* x, float a, float b, int n) {
   for (int i = 0; i < n; i++) {
     auto [y0, y1] = calc(a, x[i], b);
-    y[i] = add(y0, y1);
+    auto tmp = add(y0, y1);
+    y[i] = apply(tmp, [](auto a) { return a*2; });
   }
 }
 
