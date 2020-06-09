@@ -1,8 +1,14 @@
+# Contents
+
+
+
+
+
 # How to csynth
 ```
+cd testXX
 vitis_hls -f hls.tcl
 ```
-
 
 # Trouble shooting
 ```
